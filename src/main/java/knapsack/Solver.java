@@ -21,4 +21,13 @@ public interface Solver {
     default boolean isExact() {
         return true;
     }
+
+    /**
+     * How many search nodes the last call to {@link #solve} visited, or -1 for
+     * solvers that do not search. Comparing this between brute force and
+     * branch and bound is how the effect of pruning is measured.
+     */
+    default long nodesExplored() {
+        return -1;
+    }
 }
